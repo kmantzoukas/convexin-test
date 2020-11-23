@@ -20,7 +20,7 @@ def prepareAndCleanUpData(data: RDD[String]) =
     filter{ case (key, value) => areAllDigits(key) && areAllDigits(value)}. // filter out the headers
     map{case (key, value) => ((zeroIfEmpty(key), zeroIfEmpty(value)), 1)} // if the keys/values are empty we will use zero
 
-def aggregateValuesForKeysNaive(data: RDD[((Int, Int), Int)]) =
+def aggregateValuesForKeys(data: RDD[((Int, Int), Int)]) =
   data.
     reduceByKey(_ + _).
     filter{case (key, counter) => (counter % 2) != 0}.
