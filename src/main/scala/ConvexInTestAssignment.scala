@@ -1,4 +1,4 @@
-import ConvexInUtilities.{aggregateValuesForKeysNaive, prepareAndCleanUpData, readDataFromS3, writeDataToS3}
+import ConvexInUtilities.{aggregateValuesForKeys, prepareAndCleanUpData, readDataFromS3, writeDataToS3}
 import org.apache.spark.sql.SparkSession
 
 object ConvexInTestAssignment {
@@ -18,7 +18,7 @@ object ConvexInTestAssignment {
 
     val data = readDataFromS3(ipath)
     val preparedAndClearedUpData = prepareAndCleanUpData(data)
-    val aggregatedData = aggregateValuesForKeysNaive(preparedAndClearedUpData)
+    val aggregatedData = aggregateValuesForKeys(preparedAndClearedUpData)
     writeDataToS3(aggregatedData, opath)
 
     spark.stop
