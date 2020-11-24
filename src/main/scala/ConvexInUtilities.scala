@@ -17,7 +17,7 @@ object ConvexInUtilities {
     }
   }
 
-  def prepareAndCleanUpData(data: RDD[String]) = {
+  def prepareAndCleanUpData(data: RDD[String]): Try[RDD[((Int, Int), Int)]] = {
     try {
       Success(data.map(record => {
         val key = record.split(",|\t+")(0)

@@ -43,8 +43,6 @@ object ConvexInTestAssignment {
     }
     */
 
-
-
     /*
     readDataFromS3(ipath).flatMap{
       dataLoaded =>
